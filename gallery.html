@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư Viện Ảnh | Website của tôi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="#main" class="skip-link">Chuyển đến nội dung chính</a>
+
+    <header>
+        <nav aria-label="Điều hướng chính">
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="about.html">Giới Thiệu</a></li>
+                <li><a href="gallery.html" aria-current="page">Thư Viện Ảnh</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <h1>Thư viện ảnh Flex và Grid</h1>
+        <p>Phần tử cha chứa các hình ảnh dưới đây được áp dụng CSS Grid với 2 cột. Đồng thời, tôi đã dùng bộ chọn CSS <code>:nth-child(odd)</code> và <code>:nth-child(even)</code> để tạo ra viền và độ bo góc chéo khác nhau cho các hình ảnh xen kẽ nhau.</p>
+        
+        <!-- Yêu cầu 1: Ít nhất 5 hình ảnh trong trang này. Yêu cầu 8: Sử dụng Grid -->
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=500" alt="Màn hình code rực rỡ với các dòng mã Python">
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500" alt="Bàn làm việc với laptop và ly cà phê">
+            <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=500" alt="Nhiều màn hình máy tính hiển thị dữ liệu">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500" alt="Bàn phím cơ sáng đèn nền">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=500" alt="Cận cảnh gõ mã nguồn trên màn hình đen">
+            <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?w=500" alt="Thiết lập phòng làm việc tối có đèn LED xanh đỏ">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Dự án Web của bạn.</p>
+    </footer>
+
+</body>
+</html>

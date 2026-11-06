@@ -1,0 +1,158 @@
+/* ==========================================================================
+   Thiết lập chung cơ bản
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* ==========================================================================
+   Yêu cầu 2: Liên kết "Chuyển đến nội dung chính" (Chỉ hiện khi focus)
+   ========================================================================== */
+.skip-link {
+    position: absolute;
+    top: -9999px; /* Ẩn khỏi màn hình */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #d13030;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 0; /* Hiện ra khi người dùng dùng phím Tab */
+}
+
+/* ==========================================================================
+   Yêu cầu 3 & 9: Điều hướng truy cập được, phong cách hấp dẫn, dùng Flexbox
+   ========================================================================== */
+header {
+    background-color: #2c3e50;
+    padding: 1rem 0;
+}
+
+nav ul {
+    display: flex; /* Sử dụng Flexbox */
+    justify-content: center; /* Căn giữa các mục */
+    align-items: center;
+    list-style-type: none; /* Bỏ dấu chấm tròn */
+    gap: 30px; /* Khoảng cách giữa các liên kết */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà */
+}
+
+/* Yêu cầu 10: Hiệu ứng hover thú vị cho liên kết điều hướng */
+nav ul li a:hover, nav ul li a:focus {
+    background-color: #e74c3c;
+    color: white;
+    transform: translateY(-3px); /* Nổi lên một chút khi di chuột */
+}
+
+/* ==========================================================================
+   Bố cục nội dung chính
+   ========================================================================== */
+main {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+    min-height: 60vh;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+    margin-top: 40px;
+}
+
+/* ==========================================================================
+   Yêu cầu 5: Box Model cho TẤT CẢ hình ảnh (border, padding, border-radius)
+   ========================================================================== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 4px solid #34495e;  /* Đường viền */
+    padding: 10px;              /* Đệm (Padding) */
+    background-color: #ecf0f1;  /* Màu nền của phần đệm */
+    border-radius: 15px;        /* Bán kính viền */
+    transition: transform 0.4s ease;
+}
+
+/* Hiệu ứng hover cho tất cả ảnh */
+img:hover {
+    transform: scale(1.03); /* Phóng to nhẹ khi di chuột vào ảnh */
+}
+
+/* ==========================================================================
+   Yêu cầu 8 & 11: Sử dụng Grid và nth-child cho trang Thư viện ảnh (Gallery)
+   ========================================================================== */
+.gallery-grid {
+    display: grid; /* Áp dụng thuộc tính grid */
+    grid-template-columns: repeat(2, 1fr); /* Ít nhất hai cột (cụ thể là 2 cột đều nhau) */
+    gap: 30px; /* Khoảng trống giữa các cột và hàng */
+    margin-top: 30px;
+}
+
+.gallery-grid img {
+    margin: 0; /* Reset margin để grid lo việc căn lề */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Giữ tỷ lệ ảnh không bị méo */
+}
+
+/* Yêu cầu 11: Bộ chọn nth-child để thay đổi bán kính viền (border-radius) */
+.gallery-grid img:nth-child(odd) {
+    /* Các ảnh số lẻ: 1, 3, 5... */
+    border-radius: 50% 15px 50% 15px; /* Góc bo tròn kiểu chiếc lá */
+    border-color: #e74c3c;
+}
+
+.gallery-grid img:nth-child(even) {
+    /* Các ảnh số chẵn: 2, 4, 6... */
+    border-radius: 15px 50% 15px 50%; /* Góc bo tròn ngược lại */
+    border-color: #2980b9;
+}
+
+/* Phản hồi trên màn hình nhỏ (Mobile) */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Trở về 1 cột trên điện thoại */
+    }
+    nav ul {
+        flex-direction: column;
+    }
+}
